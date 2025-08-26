@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Gutierrez - Senior Software Engineer | Portfolio</title>
+    <meta name="description" content="Portfolio of Carlos Gutierrez, Senior Software Engineer based in Atlanta, GA. Full-stack developer specializing in Python, JavaScript, React, and cloud platforms.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Ant Design -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@5.12.8/dist/reset.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Light theme colors */
+            --primary-color: #1890ff;
+            --primary-hover: #40a9ff;
+            --secondary-color: #434343;
+            --success-color: #52c41a;
+            --warning-color: #faad14;
+            --error-color: #ff4d4f;
+            --background-color: #fafafa;
+            --surface-color: #ffffff;
+            --text-primary: #262626;
+            --text-secondary: #8c8c8c;
+            --border-color: #f0f0f0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+            
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --spacing-3xl: 64px;
+            
+            /* Layout */
+            --container-max-width: 1200px;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+        }
+        
+        [data-theme="dark"] {
+            --background-color: #141414;
+            --surface-color: #1f1f1f;
+            --text-primary: #f0f0f0;
+            --text-secondary: #bfbfbf;
+            --border-color: #303030;
+            --shadow: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        
+        /* Layout Components */
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .section {
+            padding: var(--spacing-3xl) 0;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--surface-color);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-xl);
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: var(--spacing-3xl);
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--primary-color), var(--success-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .hero-text .location {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .hero-image {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--surface-color);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .highlight {
+            padding: var(--spacing-lg);
+            background: var(--background-color);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .highlight-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .highlight-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-sm);
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+        
+        .skill-category {
+            background: var(--surface-color);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .skill-category i {
+            color: var(--primary-color);
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        
+        .skill-tag {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        /* Experience Section */
+        .experience {
+            background: var(--surface-color);
+        }
+        
+        .experience-timeline {
+            position: relative;
+        }
+        
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+        
+        .experience-item {
+            position: relative;
+            margin-left: 80px;
+            margin-bottom: var(--spacing-3xl);
+            padding: var(--spacing-xl);
+            background: var(--background-color);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -65px;
+            top: var(--spacing-xl);
+            width: 14px;
+            height: 14px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid var(--surface-color);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .experience-date {
+            background: var(--primary-color);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .experience-achievements {
+            list-style: none;
+            margin-top: var(--spacing-md);
+        }
+        
+        .experience-achievements li {
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            padding-left: var(--spacing-lg);
+            color: var(--text-secondary);
+        }
+        
+        .experience-achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+        }
+        
+        .project-card {
+            background: var(--surface-color);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--success-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .project-content {
+            padding: var(--spacing-xl);
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .tech-tag {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            background: var(--primary-hover);
+            transform: scale(1.05);
+        }
+        
+        .project-link.secondary {
+            background: var(--background-color);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .project-link.secondary:hover {
+            background: var(--text-secondary);
+            color: white;
+        }
+        
+        /* LeetCode Section */
+        .leetcode {
+            background: var(--surface-color);
+        }
+        
+        .leetcode-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .leetcode-card {
+            background: var(--background-color);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .leetcode-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .leetcode-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-sm);
+        }
+        
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+        
+        .certification-card {
+            background: var(--surface-color);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px var(--shadow);
+        }
+        
+        .certification-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-lg);
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .certification-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        
+        .certification-org {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--surface-color);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-details a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        
+        .contact-details a:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-form {
+            background: var(--background-color);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background: var(--surface-color);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--background-color);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .experience-timeline::before {
+                left: 15px;
+            }
+            
+            .experience-item {
+                margin-left: 40px;
+            }
+            
+            .experience-item::before {
+                left: -25px;
+            }
+            
+            .section {
+                padding: var(--spacing-2xl) 0;
+            }
+            
+            .projects-grid,
+            .skills-grid,
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Code highlighting */
+        .code {
+            font-family: var(--font-mono);
+            background: var(--background-color);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- @COMPONENT: Header [fixed navigation with theme toggle] -->
+    <header class="header">
+        <nav class="container">
+            <div class="nav">
+                <a href="#home" class="logo">CG</a>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#leetcode">LeetCode</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" data-event="click:toggleTheme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: HeroSection [main introduction with profile image] -->
+    <section id="home" class="section hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-text">
+                    <h1 data-bind="user.fullName">Carlos Gutierrez</h1>
+                    <div class="subtitle" data-bind="user.title">Senior Software Engineer</div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span data-bind="user.location">Atlanta, GA</span>
+                    </div>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: var(--spacing-xl);">
+                        Full-stack engineer with expertise in Python, JavaScript, React, and cloud platforms. 
+                        Passionate about building scalable systems and leading technical initiatives that drive business value.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="mailto:carlos.gutierrez@carg.dev" class="social-link" data-mock="true">
+                            <i class="fas fa-envelope"></i>
+                            Email
+                        </a>
+                        <a href="https://linkedin.com/in/cargdev" class="social-link" data-mock="true">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/CarGDev" class="social-link" data-mock="true">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://leetcode.com/u/cargdev/" class="social-link" data-mock="true">
+                            <i class="fas fa-code"></i>
+                            LeetCode
+                        </a>
+                        <a href="https://blog.cargdev.io/" class="social-link" data-mock="true">
+                            <i class="fas fa-blog"></i>
+                            Blog
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <!-- Modern professional software engineer working at a clean desk setup with multiple monitors -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" alt="Carlos Gutierrez - Professional headshot" data-mock-image="true" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- @COMPONENT: AboutSection [detailed background and achievements] -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>About Me</h2>
+                <p>Driven by a passion for technology and continuous learning, I build solutions that make a difference.</p>
+            </div>
+            
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <p>
+                        As a Senior Software Engineer with extensive full-stack experience, I specialize in creating robust, 
+                        scalable applications using modern technologies. My expertise spans across Python, JavaScript, TypeScript, 
+                        and various frameworks including React, NestJS, and Spring Boot.
+                    </p>
+                    <p>
+                        I thrive in leadership roles, driving technical initiatives that deliver measurable business impact. 
+                        My experience includes optimizing CI/CD pipelines, implementing security solutions, and migrating 
+                        legacy systems to modern architectures. I'm passionate about open source contributions and 
+                        maintaining active engagement in the developer community.
+                    </p>
+                    <p>
+                        When not coding, I enjoy solving algorithmic challenges on LeetCode, contributing to open source projects, 
+                        and sharing knowledge through my technical blog.
+                    </p>
+                </div>
+                
+                <div class="highlights">
+                    <div class="highlight">
+                        <span class="highlight-number" data-bind="stats.yearsExperience">5+</span>
+                        <div class="highlight-label">Years Experience</div>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-number" data-bind="stats.projectsCompleted">50+</span>
+                        <div class="highlight-label">Projects Completed</div>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-number" data-bind="stats.npmDownloads">572+</span>
+                        <div class="highlight-label">NPM Downloads</div>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-number" data-bind="stats.certifications">3</span>
+                        <div class="highlight-label">Certifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- @COMPONENT: SkillsSection [categorized technical skills] -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Technical Skills</h2>
+                <p>A comprehensive toolkit built through years of hands-on development and continuous learning.</p>
+            </div>
+            
+            <!-- @MAP: skillCategories.map(category => ( -->
+            <div class="skills-grid fade-in">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Lua</span>
+                        <span class="skill-tag">Bash</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-layer-group"></i> Frameworks & Libraries</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Redux</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">NestJS</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">GraphQL</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Azure Pipelines</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Cloudflare</span>
+                        <span class="skill-tag">Tailscale</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Development Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Cypress</span>
+                        <span class="skill-tag">Nvim</span>
+                        <span class="skill-tag">NPM</span>
+                        <span class="skill-tag">Maven</span>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SkillsSection -->
+
+    <!-- @COMPONENT: ExperienceSection [professional work history with achievements] -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Professional Experience</h2>
+                <p>Building impactful solutions across diverse industries and technologies.</p>
+            </div>
+            
+            <!-- @MAP: experiences.map(experience => ( -->
+            <div class="experience-timeline fade-in">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-company" data-bind="experience.company">Ivoyant</div>
+                            <div class="experience-title" data-bind="experience.title">Senior Software Engineer</div>
+                        </div>
+                        <div class="experience-date" data-bind="experience.duration">2022 – Present</div>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Led frontend development for AT&T Care product, serving millions of users daily</li>
+                        <li>Redesigned UI workflows resulting in <strong>$20M/year</strong> operational savings</li>
+                        <li>Optimized CI/CD pipelines, reducing build times from <strong>45 min → 2 min</strong></li>
+                        <li>Implemented multi-customer SSO security architecture using Java 17</li>
+                        <li>Mentored junior developers and established coding standards for the team</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-company" data-bind="experience.company">Tortoise</div>
+                            <div class="experience-title" data-bind="experience.title">Full Stack Developer</div>
+                        </div>
+                        <div class="experience-date" data-bind="experience.duration">2021 – 2022</div>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Migrated critical systems from legacy stack to modern Angular architecture</li>
+                        <li>Deployed scalable backend services to Google Cloud Platform (GCP)</li>
+                        <li>Developed Linux-based automation pipelines for robotics deployment</li>
+                        <li>Engineered MQTT/TCP communication protocols for IoT device integration</li>
+                        <li>Implemented real-time monitoring and alerting systems</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-company" data-bind="experience.company">NETGOU & Marelli Mexicana</div>
+                            <div class="experience-title" data-bind="experience.title">Software Engineer</div>
+                        </div>
+                        <div class="experience-date" data-bind="experience.duration">2020 – 2021</div>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Migrated legacy API systems to modern RESTful architecture</li>
+                        <li>Designed and optimized SQL database solutions for automotive manufacturing</li>
+                        <li>Automated purchase order processes, reducing manual work by 60%</li>
+                        <li>Implemented data validation and reporting systems</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-company" data-bind="experience.company">Koala Mexicana</div>
+                            <div class="experience-title" data-bind="experience.title">Junior Developer</div>
+                        </div>
+                        <div class="experience-date" data-bind="experience.duration">2019 – 2020</div>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Built financial tracking applications using Java Spring Boot</li>
+                        <li>Developed RESTful APIs for financial data management</li>
+                        <li>Created responsive web interfaces for financial reporting</li>
+                        <li>Collaborated with stakeholders to gather and implement requirements</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ExperienceSection -->
+
+    <!-- @COMPONENT: ProjectsSection [open source and personal projects showcase] -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Projects & Open Source</h2>
+                <p>Building tools and solutions that solve real-world problems and contribute to the developer community.</p>
+            </div>
+            
+            <!-- @MAP: projects.map(project => ( -->
+            <div class="projects-grid fade-in">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-bind="project.name">ai.cargdev.io</h3>
+                        <p class="project-description" data-bind="project.description">
+                            Local deployment platform for Large Language Models using Docker and Ollama. 
+                            Enables private, secure AI interactions without relying on external services.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Ollama</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">AI/ML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" data-mock="true">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                            <a href="#" class="project-link secondary" data-mock="true">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-bind="project.name">git.cargdev.io</h3>
+                        <p class="project-description" data-bind="project.description">
+                            Self-hosted Git service powered by Gitea, providing private repository management 
+                            with integrated CI/CD capabilities and collaborative development tools.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Gitea</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">CI/CD</span>
+                            <span class="tech-tag">DevOps</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" data-mock="true">
+                                <i class="fas fa-external-link-alt"></i>
+                                Visit Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-bind="project.name">ideadrop.nvim</h3>
+                        <p class="project-description" data-bind="project.description">
+                            Neovim plugin for organizing and managing ideas in Markdown format. 
+                            Streamlines note-taking and idea development directly within the editor.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Lua</span>
+                            <span class="tech-tag">Neovim</span>
+                            <span class="tech-tag">Markdown</span>
+                            <span class="tech-tag">Plugin Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" data-mock="true">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-bind="project.name">react-crafter</h3>
+                        <p class="project-description" data-bind="project.description">
+                            NPM package for React component development with <strong>572+ downloads</strong>. 
+                            Provides utilities and tools to streamline React application development.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">NPM</span>
+                            <span class="tech-tag">Package Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" data-mock="true">
+                                <i class="fas fa-cube"></i>
+                                NPM Package
+                            </a>
+                            <a href="#" class="project-link secondary" data-mock="true">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-bind="project.name">apiAi</h3>
+                        <p class="project-description" data-bind="project.description">
+                            AI-powered API development tool that automates endpoint generation and testing. 
+                            Integrates machine learning to optimize API performance and reliability.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">API Development</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link secondary" data-mock="true">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-bind="project.name">agent-calendar-appointment</h3>
+                        <p class="project-description" data-bind="project.description">
+                            Intelligent calendar management system with automated scheduling capabilities. 
+                            Features smart conflict resolution and integration with popular calendar platforms.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Calendar APIs</span>
+                            <span class="tech-tag">Automation</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link secondary" data-mock="true">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProjectsSection -->
+
+    <!-- @COMPONENT: LeetCodeSection [algorithmic problem solving achievements] -->
+    <section id="leetcode" class="section leetcode">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>LeetCode & Problem Solving</h2>
+                <p>Consistent practice in data structures and algorithms, demonstrating strong analytical thinking and coding skills.</p>
+            </div>
+            
+            <!-- @STATE: leetcodeStats:object = {} -->
+            <!-- @FUNCTIONALITY: Should integrate with LeetCode API to fetch real-time statistics -->
+            <div class="leetcode-stats fade-in">
+                <div class="leetcode-card">
+                    <span class="leetcode-number" data-bind="leetcodeStats.totalSolved">150+</span>
+                    <div class="leetcode-label">Problems Solved</div>
+                </div>
+                <div class="leetcode-card">
+                    <span class="leetcode-number" data-bind="leetcodeStats.easyCount">85</span>
+                    <div class="leetcode-label">Easy Problems</div>
+                </div>
+                <div class="leetcode-card">
+                    <span class="leetcode-number" data-bind="leetcodeStats.mediumCount">55</span>
+                    <div class="leetcode-label">Medium Problems</div>
+                </div>
+                <div class="leetcode-card">
+                    <span class="leetcode-number" data-bind="leetcodeStats.hardCount">10</span>
+                    <div class="leetcode-label">Hard Problems</div>
+                </div>
+                <div class="leetcode-card">
+                    <span class="leetcode-number" data-bind="leetcodeStats.acceptanceRate">92%</span>
+                    <div class="leetcode-label">Acceptance Rate</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--spacing-xl);">
+                <a href="https://leetcode.com/u/cargdev/" class="project-link" data-mock="true">
+                    <i class="fas fa-external-link-alt"></i>
+                    View LeetCode Profile
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: LeetCodeSection -->
+
+    <!-- @COMPONENT: CertificationsSection [professional certifications and achievements] -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Certifications</h2>
+                <p>Continuous professional development and validated expertise in key technologies and methodologies.</p>
+            </div>
+            
+            <!-- @MAP: certifications.map(cert => ( -->
+            <div class="certifications-grid fade-in">
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="certification-title" data-bind="cert.title">Professional Scrum Developer</h3>
+                    <div class="certification-org" data-bind="cert.organization">Scrum.org</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Validated expertise in Agile development practices, test-driven development, and collaborative software engineering.
+                    </p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="certification-title" data-bind="cert.title">Professional Scrum Master</h3>
+                    <div class="certification-org" data-bind="cert.organization">Scrum.org</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Demonstrated understanding of Scrum framework, servant leadership, and team facilitation skills.
+                    </p>
+                </div>
+                
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="certification-title" data-bind="cert.title">EF SET C1 Advanced English</h3>
+                    <div class="certification-org" data-bind="cert.organization">EF Education First</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Advanced proficiency in English communication, enabling effective collaboration in global teams.
+                    </p>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: CertificationsSection -->
+
+    <!-- @COMPONENT: ContactSection [contact information and form] -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Get In Touch</h2>
+                <p>Let's discuss opportunities, collaborate on projects, or just connect and share ideas.</p>
+            </div>
+            
+            <div class="contact-content fade-in">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-details">
+                            <div><strong>Email</strong></div>
+                            <a href="mailto:carlos.gutierrez@carg.dev" data-mock="true">carlos.gutierrez@carg.dev</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-details">
+                            <div><strong>Location</strong></div>
+                            <div data-bind="user.location">Atlanta, GA</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div class="contact-details">
+                            <div><strong>LinkedIn</strong></div>
+                            <a href="https://linkedin.com/in/cargdev" data-mock="true">linkedin.com/in/cargdev</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div class="contact-details">
+                            <div><strong>GitHub</strong></div>
+                            <a href="https://github.com/CarGDev" data-mock="true">github.com/CarGDev</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <!-- @FUNCTIONALITY: Should implement form validation and email sending -->
+                    <form data-event="submit:handleContactSubmit" data-mock="true">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required data-bind="contactForm.name" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required data-bind="contactForm.email" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required data-bind="contactForm.subject" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required data-bind="contactForm.message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" data-implementation="Should validate form and send email">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- @COMPONENT: Footer [copyright and additional links] -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Carlos Gutierrez. Built with modern web technologies and attention to detail.</p>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // Theme Toggle Functionality
+        (function() {
+            const themeToggle = document.querySelector('.theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            // Set initial theme
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateThemeIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+            
+            function updateThemeIcon(theme) {
+                themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        })();
+
+        // Smooth Scrolling Navigation
+        (function() {
+            const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const headerOffset = 80;
+                        const elementPosition = targetSection.offsetTop;
+                        const offsetPosition = elementPosition - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active link
+                        navLinks.forEach(navLink => navLink.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+        })();
+
+        // Intersection Observer for Animations
+        (function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.2s';
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.fade-in');
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        })();
+
+        // Header Background on Scroll
+        (function() {
+            const header = document.querySelector('.header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.style.background = 'var(--surface-color)';
+                    header.style.backdropFilter = 'blur(10px)';
+                } else {
+                    header.style.background = 'var(--surface-color)';
+                    header.style.backdropFilter = 'blur(10px)';
+                }
+            });
+        })();
+
+        // Contact Form Handling (Mock)
+        (function() {
+            const contactForm = document.querySelector('form[data-mock="true"]');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement actual form submission
+                    alert('Thank you for your message! This is a demo - in production, this would send your message.');
+                });
+            }
+        })();
+
+        // Skill Tag Hover Effects
+        (function() {
+            const skillTags = document.querySelectorAll('.skill-tag');
+            
+            skillTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        })();
+
+        // Project Card Interactions
+        (function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

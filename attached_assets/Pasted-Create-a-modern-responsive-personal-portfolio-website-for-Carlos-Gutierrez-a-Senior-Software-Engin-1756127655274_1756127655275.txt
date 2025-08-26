@@ -1,0 +1,40 @@
+Create a modern, responsive personal portfolio website for Carlos Gutierrez, a Senior Software Engineer based in Atlanta, GA. The portfolio should highlight his professional experience, technical expertise, open-source contributions, and coding problem-solving skills.
+
+Content to Include:
+	•	Header/Intro Section:
+	•	Name: Carlos Gutierrez
+	•	Title: Senior Software Engineer
+	•	Location: Atlanta, GA
+	•	Contact: carlos.gutierrez@carg.dev | LinkedIn (https://linkedin.com/in/cargdev) | GitHub (https://github.com/CarGDev) | LeetCode (https://leetcode.com/u/cargdev/) | Blog (https://blog.cargdev.io/)
+	•	About Section:
+	•	Brief summary of Carlos as a full-stack engineer with strong skills in Python, JavaScript, TypeScript, SQL, React, Redux, Node.js, NestJS, Spring Boot, and cloud platforms (AWS, GCP, Azure).
+	•	Emphasize leadership experience, system improvement mindset, and architectural vision.
+	•	Skills Section:
+	•	Languages: Python, JavaScript, TypeScript, SQL, Java, Lua, Bash
+	•	Frameworks & Libraries: React.js, Redux, Angular, NestJS, Express, Spring Boot, GraphQL
+	•	Cloud & DevOps: AWS, GCP, Docker, CI/CD, Azure Pipelines, Kubernetes, Cloudflare, Tailscale
+	•	Tools: Git, Postman, Cypress, Nvim, NPM, Maven
+	•	Professional Experience Section (highlighting key achievements):
+	•	Ivoyant (2022–Present): Led frontend development for AT&T Care product, redesigned UI workflows saving $20M/year, optimized CI/CD reducing build times from 45 min → 2 min, implemented multi-customer SSO security with Java 17.
+	•	Tortoise (2021–2022): Migrated critical systems to Angular, deployed backend services to GCP, developed Linux-based automation pipelines, engineered MQTT/TCP communication for robotics.
+	•	NETGOU & Marelli Mexicana: Migrated legacy API systems, designed SQL solutions, and automated purchase order processes.
+	•	Koala Mexicana: Built financial tracking apps with Java Spring Boot.
+	•	Projects & Open Source:
+	•	ai.cargdev.io: Local deployment of LLMs with Docker & Ollama.
+	•	git.cargdev.io: Self-hosted Git service with Gitea.
+	•	Nvim Plugin: ideadrop.nvim (organize ideas in Markdown).
+	•	NPM Packages: react-crafter (572+ downloads), fullstory-asset-sdk, CSV/JSON converters, timestamp converter.
+	•	GitHub Projects: apiAi, agent-calendar-appointment, ideadrop.nvim.
+	•	LeetCode Section:
+	•	Highlight consistency in solving algorithmic problems.
+	•	Showcase data structures & algorithms expertise demonstrated on LeetCode Profile.
+	•	Certifications Section:
+	•	Scrum.org: Professional Scrum Developer & Professional Scrum Master.
+	•	EF SET C1 Advanced English Certification.
+	•	Design Notes:
+	•	Modern UI with clean typography and a dark/light mode toggle.
+	•	Sectioned layout: Intro → Skills → Experience → Projects → LeetCode → Certifications → Contact.
+	•	Add subtle animations for project cards and skill tags.
+	•	Highlight GitHub pinned repos dynamically and LeetCode stats via API if possible.
+
+The portfolio should look professional but personal, optimized for both desktop and mobile, and highlight Carlos as a technically skilled, product-driven engineer who is active in open source and problem-solving.
