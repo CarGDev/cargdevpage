@@ -60,8 +60,14 @@ export function CertificationsSection() {
                     height: '100%',
                     textAlign: 'center',
                     border: '1px solid var(--ant-color-border)',
+                    cursor: cert.verificationUrl ? 'pointer' : 'default',
                   }}
                   data-testid={`card-certification-${cert.title}`}
+                  onClick={() => {
+                    if (cert.verificationUrl) {
+                      window.open(cert.verificationUrl, '_blank', 'noopener,noreferrer');
+                    }
+                  }}
                 >
                   <div
                     style={{

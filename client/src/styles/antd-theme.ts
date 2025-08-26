@@ -19,8 +19,8 @@ export const lightTheme: ThemeConfig = {
   },
   components: {
     Layout: {
-      colorBgHeader: '#ffffff',
-      colorBgBody: '#fafafa',
+      headerBg: '#ffffff',
+      bodyBg: '#fafafa',
     },
     Card: {
       colorBgContainer: '#ffffff',
@@ -50,8 +50,8 @@ export const darkTheme: ThemeConfig = {
   },
   components: {
     Layout: {
-      colorBgHeader: '#1f1f1f',
-      colorBgBody: '#141414',
+      headerBg: '#1f1f1f',
+      bodyBg: '#141414',
     },
     Card: {
       colorBgContainer: '#1f1f1f',

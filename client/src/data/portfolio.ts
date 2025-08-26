@@ -17,7 +17,10 @@ export interface SocialLink {
 export interface SkillCategory {
   title: string;
   icon: string;
-  skills: string[];
+  skills: Array<{
+    name: string;
+    icon?: string;
+  }>;
 }
 
 export interface Experience {
@@ -50,6 +53,7 @@ export interface Certification {
   organization: string;
   description: string;
   icon: string;
+  verificationUrl?: string;
 }
 
 export interface Highlight {
@@ -67,12 +71,6 @@ export const personalInfo: PersonalInfo = {
 };
 
 export const socialLinks: SocialLink[] = [
-  {
-    platform: "email",
-    url: "mailto:carlos.gutierrez@carg.dev",
-    icon: "envelope",
-    label: "Email"
-  },
   {
     platform: "linkedin",
     url: "https://linkedin.com/in/cargdev",
@@ -102,23 +100,55 @@ export const socialLinks: SocialLink[] = [
 export const skillCategories: SkillCategory[] = [
   {
     title: "Programming Languages",
-    icon: "code",
-    skills: ["Python", "JavaScript", "TypeScript", "SQL", "Java", "Lua", "Bash"]
+    icon: "FaCode",
+    skills: [
+      { name: "Python", icon: "FaPython" },
+      { name: "JavaScript", icon: "FaJs" },
+      { name: "TypeScript", icon: "SiTypescript" },
+      { name: "SQL", icon: "FaDatabase" },
+      { name: "Java", icon: "FaJava" },
+      { name: "Lua", icon: "SiLua" },
+      { name: "Bash", icon: "FaTerminal" }
+    ]
   },
   {
     title: "Frameworks & Libraries",
-    icon: "layer-group",
-    skills: ["React.js", "Redux", "Angular", "NestJS", "Express", "Spring Boot", "GraphQL"]
+    icon: "FaLayerGroup",
+    skills: [
+      { name: "React.js", icon: "FaReact" },
+      { name: "Redux", icon: "SiRedux" },
+      { name: "Angular", icon: "FaAngular" },
+      { name: "NestJS", icon: "SiNestjs" },
+      { name: "Express", icon: "SiExpress" },
+      { name: "Spring Boot", icon: "SiSpringboot" },
+      { name: "GraphQL", icon: "SiGraphql" }
+    ]
   },
   {
     title: "Cloud & DevOps",
-    icon: "cloud",
-    skills: ["AWS", "GCP", "Docker", "CI/CD", "Azure Pipelines", "Kubernetes", "Cloudflare", "Tailscale"]
+    icon: "FaCloud",
+    skills: [
+      { name: "AWS", icon: "FaAws" },
+      { name: "GCP", icon: "SiGooglecloud" },
+      { name: "Docker", icon: "FaDocker" },
+      { name: "CI/CD", icon: "FaGithub" },
+      { name: "Azure Pipelines", icon: "FaMicrosoft" },
+      { name: "Kubernetes", icon: "SiKubernetes" },
+      { name: "Cloudflare", icon: "SiCloudflare" },
+      { name: "Tailscale", icon: "SiTailscale" }
+    ]
   },
   {
     title: "Development Tools",
-    icon: "tools",
-    skills: ["Git", "Postman", "Cypress", "Nvim", "NPM", "Maven"]
+    icon: "FaWrench",
+    skills: [
+      { name: "Git", icon: "FaGit" },
+      { name: "Postman", icon: "SiPostman" },
+      { name: "Cypress", icon: "SiCypress" },
+      { name: "Nvim", icon: "SiNeovim" },
+      { name: "NPM", icon: "FaNpm" },
+      { name: "Maven", icon: "SiApache" }
+    ]
   }
 ];
 
@@ -199,7 +229,7 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "NPM", "Package Development"],
     icon: "react",
     npmUrl: "https://www.npmjs.com/package/react-crafter",
-    githubUrl: "https://github.com/CarGDev/react-crafter"
+    githubUrl: "https://github.com/CarGDev/reactwizard"
   },
   {
     name: "apiAi",
@@ -209,11 +239,11 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/CarGDev/apiAi"
   },
   {
-    name: "agent-calendar-appointment",
-    description: "Intelligent calendar management system with automated scheduling capabilities. Features smart conflict resolution and integration with popular calendar platforms.",
-    technologies: ["Node.js", "Calendar APIs", "Automation", "JavaScript"],
+    name: "cargdev-cyberpunk",
+    description: "A vibrant, high-contrast Neovim color scheme crafted for developers who thrive in bold, electrifying visuals. Built with TypeScript support and atomic design principles in mind, this theme delivers blazing neon tones and a cyberpunk aesthetic that maximizes focus and visual impact..",
+    technologies: ["Lua", "ColorScheme", "Vim"],
     icon: "calendar-alt",
-    githubUrl: "https://github.com/CarGDev/agent-calendar-appointment"
+    githubUrl: "https://github.com/CarGDev/cargdev-cyberpunk"
   }
 ];
 
@@ -230,19 +260,22 @@ export const certifications: Certification[] = [
     title: "Professional Scrum Developer",
     organization: "Scrum.org",
     description: "Validated expertise in Agile development practices, test-driven development, and collaborative software engineering.",
-    icon: "users"
+    icon: "users",
+    verificationUrl: "https://www.scrum.org/certificates/839967"
   },
   {
     title: "Professional Scrum Master",
     organization: "Scrum.org",
     description: "Demonstrated understanding of Scrum framework, servant leadership, and team facilitation skills.",
-    icon: "project-diagram"
+    icon: "project-diagram",
+    verificationUrl: "https://www.scrum.org/certificates/941271"
   },
   {
     title: "EF SET C1 Advanced English",
     organization: "EF Education First",
     description: "Advanced proficiency in English communication, enabling effective collaboration in global teams.",
-    icon: "globe"
+    icon: "globe",
+    verificationUrl: "https://cert.efset.org/huXRp7"
   }
 ];
 

@@ -1,10 +1,10 @@
 import { Card } from 'antd';
 import { 
-  CodeOutlined,
-  CloudOutlined,
-  ToolOutlined,
-  AppstoreOutlined,
-} from '@ant-design/icons';
+  FaCode,
+  FaCloud,
+  FaWrench,
+  FaLayerGroup,
+} from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { SkillTag } from '@/components/atoms';
 import type { SkillCategory as SkillCategoryType } from '@/data/portfolio';
@@ -14,14 +14,14 @@ interface SkillCategoryProps {
 }
 
 const iconMap = {
-  code: CodeOutlined,
-  'layer-group': AppstoreOutlined,
-  cloud: CloudOutlined,
-  tools: ToolOutlined,
+  FaCode: FaCode,
+  FaLayerGroup: FaLayerGroup,
+  FaCloud: FaCloud,
+  FaWrench: FaWrench,
 };
 
 export function SkillCategory({ category }: SkillCategoryProps) {
-  const IconComponent = iconMap[category.icon as keyof typeof iconMap] || CodeOutlined;
+  const IconComponent = iconMap[category.icon as keyof typeof iconMap] || FaCode;
 
   return (
     <Card
@@ -48,7 +48,7 @@ export function SkillCategory({ category }: SkillCategoryProps) {
       <div>
         {category.skills.map((skill, index) => (
           <motion.div
-            key={skill}
+            key={skill.name}
             style={{ display: 'inline-block' }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -56,7 +56,7 @@ export function SkillCategory({ category }: SkillCategoryProps) {
             transition={{ duration: 0.3, delay: index * 0.05 }}
             whileHover={{ scale: 1.1 }}
           >
-            <SkillTag>{skill}</SkillTag>
+            <SkillTag skill={skill} />
           </motion.div>
         ))}
       </div>

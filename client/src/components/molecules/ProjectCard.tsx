@@ -76,7 +76,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         
         <div style={{ marginBottom: '16px' }}>
           {project.technologies.map((tech) => (
-            <SkillTag key={tech}>{tech}</SkillTag>
+            <SkillTag key={tech} skill={{ name: tech }} />
           ))}
         </div>
         

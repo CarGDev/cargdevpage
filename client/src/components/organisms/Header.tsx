@@ -55,7 +55,7 @@ export function Header() {
         />
       </motion.div>
       
-      {!isMobile && <NavigationMenu />}
+      {!isMobile ? <NavigationMenu /> : <NavigationMenu isMobile={true} />}
       
       <ThemeToggle />
     </AntHeader>
