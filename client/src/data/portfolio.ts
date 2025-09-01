@@ -244,15 +244,22 @@ export const projects: Project[] = [
     technologies: ["Lua", "ColorScheme", "Vim"],
     icon: "calendar-alt",
     githubUrl: "https://github.com/CarGDev/cargdev-cyberpunk"
+  },
+  {
+    name: "pomodoro",
+    description: "Pomodoro (by CarGDev) is a TypeScript-based productivity tool that appears to implement the Pomodoro Technique using a client–server architecture. The project is structured with separate client, server, and shared modules, suggesting a web-powered or API-driven timer system",
+    technologies: ["React", "Node", "NPM"],
+    icon: "BsStopwatch",
+    githubUrl: "https://github.com/CarGDev/pomodoro"
   }
 ];
 
 export const leetcodeStats: LeetCodeStats = {
-  totalSolved: 150,
-  easyCount: 85,
-  mediumCount: 55,
-  hardCount: 10,
-  acceptanceRate: "92%"
+  totalSolved: 79,
+  easyCount: 39,
+  mediumCount: 35,
+  hardCount: 5,
+  acceptanceRate: "61.6%"
 };
 
 export const certifications: Certification[] = [
