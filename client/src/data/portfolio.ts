@@ -250,7 +250,8 @@ export const projects: Project[] = [
     description: "Pomodoro (by CarGDev) is a TypeScript-based productivity tool that appears to implement the Pomodoro Technique using a client–server architecture. The project is structured with separate client, server, and shared modules, suggesting a web-powered or API-driven timer system",
     technologies: ["React", "Node", "NPM"],
     icon: "BsStopwatch",
-    githubUrl: "https://github.com/CarGDev/pomodoro"
+    githubUrl: "https://github.com/CarGDev/pomodoro",
+    liveUrl: "https://pomodoro.cargdev.io"
   }
 ];
 
