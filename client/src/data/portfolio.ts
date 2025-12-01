@@ -63,10 +63,10 @@ export interface Highlight {
 
 export const personalInfo: PersonalInfo = {
   fullName: "Carlos Gutierrez",
-  title: "Senior Software Engineer",
+  title: "Senior Software Engineer & AI Enthusiast",
   location: "Atlanta, GA",
   email: "carlos.gutierrez@carg.dev",
-  description: "Mechatronic Engineer turned Software Engineer, building scalable systems at iVoyant for AT&T/Cricket Wireless. Passionate about AI/ML, full-stack development, and open source contributions that drive measurable business impact.",
+  description: "Senior Software Engineer with 5+ years of experience building full-stack solutions – from crafting intuitive front-end interfaces in React to architecting robust back-end services in Python/Java (NestJS, Spring Boot) and deploying them in the cloud. Passionate about designing scalable systems, leading engineering teams, and applying software expertise to AI/ML projects and Large Language Models.",
   profileImage: "@assets/CargdevCONFONDObco_1756133331615.png"
 };
 
