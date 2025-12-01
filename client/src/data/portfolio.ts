@@ -66,7 +66,7 @@ export const personalInfo: PersonalInfo = {
   title: "Senior Software Engineer",
   location: "Atlanta, GA",
   email: "carlos.gutierrez@carg.dev",
-  description: "Full-stack engineer with expertise in Python, JavaScript, React, and cloud platforms. Passionate about building scalable systems and leading technical initiatives that drive business value.",
+  description: "Mechatronic Engineer turned Software Engineer, building scalable systems at iVoyant for AT&T/Cricket Wireless. Passionate about AI/ML, full-stack development, and open source contributions that drive measurable business impact.",
   profileImage: "@assets/CargdevCONFONDObco_1756133331615.png"
 };
 
@@ -202,6 +202,20 @@ export const experiences: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    name: "sheepOp",
+    description: "A comprehensive transformer-based language model implementation from scratch, designed for research, custom training, and production deployment. Features optimized inference with KV caching, efficient attention mechanisms, and multi-format data processing support for PDFs, images (OCR), code files, and text.",
+    technologies: ["Python", "AI/ML", "Transformers", "Deep Learning"],
+    icon: "brain",
+    githubUrl: "https://github.com/CarGDev/sheepOp"
+  },
+  {
+    name: "LLM rag DS optimizer",
+    description: "A production-grade Python library for optimizing LLM inference and retrieval through advanced data structures and algorithms. Features KV cache optimization with paged allocation, dynamic micro-batching, HNSW-based RAG retrieval, and comprehensive observability. Focuses on improving throughput, latency, and memory efficiency for production RAG systems.",
+    technologies: ["Python", "AI/ML", "RAG", "Data Structures", "Optimization"],
+    icon: "brain",
+    githubUrl: "https://github.com/CarGDev/llm-rag-ds-optimizer"
+  },
   {
     name: "ai.cargdev.io",
     description: "Local deployment platform for Large Language Models using Docker and Ollama. Enables private, secure AI interactions without relying on external services.",

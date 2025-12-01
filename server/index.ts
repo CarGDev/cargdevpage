@@ -1,13 +1,13 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-import dotenv from 'dotenv';
-import path from 'path';
+import dotenv from "dotenv";
+import path from "path";
 
 // Load environment variables from .env file in project root
-const envPath = path.resolve(process.cwd(), '.env');
-console.log('🔍 Loading .env file from:', envPath);
-console.log('🔍 Current working directory:', process.cwd());
+const envPath = path.resolve(process.cwd(), ".env");
+console.log("🔍 Loading .env file from:", envPath);
+console.log("🔍 Current working directory:", process.cwd());
 dotenv.config({ path: envPath });
 
 const app = express();
@@ -58,18 +58,18 @@ app.use((req, res, next) => {
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
-  const isDevelopment = process.env.NODE_ENV === 'development';
-  console.log('🔍 Environment detection:', { 
-    NODE_ENV: process.env.NODE_ENV, 
+  const isDevelopment = process.env.NODE_ENV === "development";
+  console.log("🔍 Environment detection:", {
+    NODE_ENV: process.env.NODE_ENV,
     appEnv: app.get("env"),
-    isDevelopment 
+    isDevelopment,
   });
-  
+
   if (isDevelopment) {
-    console.log('🚀 Setting up Vite development server');
+    console.log("🚀 Setting up Vite development server");
     await setupVite(app, server);
   } else {
-    console.log('🏗️  Setting up production static file serving');
+    console.log("🏗️  Setting up production static file serving");
     serveStatic(app);
   }
 
@@ -77,7 +77,7 @@ app.use((req, res, next) => {
   // Other ports are firewalled. Default to 5000 if not specified.
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || '5000', 10);
+  const port = parseInt(process.env.PORT || "5000", 10);
   console.log("🔍 Environment variables at server startup:");
   console.log("  PORT:", process.env.PORT);
   console.log("  SMTP_HOST:", process.env.SMTP_HOST);
@@ -87,11 +87,12 @@ app.use((req, res, next) => {
   console.log("  OPTIONS_SECURE:", process.env.OPTIONS_SECURE);
   console.log("  MAIL_TRANSPORT:", process.env.MAIL_TRANSPORT);
   console.log("Starting server on port:", port);
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
-  });
+  server.listen(
+    {
+      port,
+    },
+    () => {
+      log(`serving on port ${port}`);
+    },
+  );
 })();

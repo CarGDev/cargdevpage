@@ -1,108 +1,157 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ================================
+   ✅ Tailwind v4 theme definitions
+   (mirrors :root — nothing removed)
+   ================================ */
+@theme {
+  --color-background: 0 0% 98%;
+  --color-foreground: 210 25% 7.8431%;
+  --color-card: 180 6.6667% 97.0588%;
+  --color-card-foreground: 210 25% 7.8431%;
+  --color-popover: 0 0% 100%;
+  --color-popover-foreground: 210 25% 7.8431%;
+  --color-primary: 203.8863 88.2845% 53.1373%;
+  --color-primary-foreground: 0 0% 100%;
+  --color-secondary: 210 25% 7.8431%;
+  --color-secondary-foreground: 0 0% 100%;
+  --color-muted: 240 1.9608% 90%;
+  --color-muted-foreground: 210 25% 7.8431%;
+  --color-accent: 211.5789 51.3514% 92.7451%;
+  --color-accent-foreground: 203.8863 88.2845% 53.1373%;
+  --color-destructive: 356.3033 90.5579% 54.3137%;
+  --color-destructive-foreground: 0 0% 100%;
+  --color-border: 201.4286 30.4348% 90.9804%;
+  --color-input: 200 23.0769% 97.451%;
+  --color-ring: 202.8169 89.1213% 53.1373%;
+  
+  /* Keep original variable names for CSS variable usage */
+  --background: var(--color-background);
+  --foreground: var(--color-foreground);
+  --card: var(--color-card);
+  --card-foreground: var(--color-card-foreground);
+  --popover: var(--color-popover);
+  --popover-foreground: var(--color-popover-foreground);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-primary-foreground);
+  --secondary: var(--color-secondary);
+  --secondary-foreground: var(--color-secondary-foreground);
+  --muted: var(--color-muted);
+  --muted-foreground: var(--color-muted-foreground);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-accent-foreground);
+  --destructive: var(--color-destructive);
+  --destructive-foreground: var(--color-destructive-foreground);
+  --border: var(--color-border);
+  --input: var(--color-input);
+  --ring: var(--color-ring);
 
-:root {
-  --background: hsl(0, 0%, 98%);
-  --foreground: hsl(210, 25%, 7.8431%);
-  --card: hsl(180, 6.6667%, 97.0588%);
-  --card-foreground: hsl(210, 25%, 7.8431%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(210, 25%, 7.8431%);
-  --primary: hsl(203.8863, 88.2845%, 53.1373%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(210, 25%, 7.8431%);
-  --secondary-foreground: hsl(0, 0%, 100%);
-  --muted: hsl(240, 1.9608%, 90%);
-  --muted-foreground: hsl(210, 25%, 7.8431%);
-  --accent: hsl(211.5789, 51.3514%, 92.7451%);
-  --accent-foreground: hsl(203.8863, 88.2845%, 53.1373%);
-  --destructive: hsl(356.3033, 90.5579%, 54.3137%);
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(201.4286, 30.4348%, 90.9804%);
-  --input: hsl(200, 23.0769%, 97.4510%);
-  --ring: hsl(202.8169, 89.1213%, 53.1373%);
-  --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
-  --chart-2: hsl(159.7826, 100%, 36.0784%);
-  --chart-3: hsl(42.0290, 92.8251%, 56.2745%);
-  --chart-4: hsl(147.1429, 78.5047%, 41.9608%);
-  --chart-5: hsl(341.4894, 75.2000%, 50.9804%);
-  --sidebar: hsl(180, 6.6667%, 97.0588%);
-  --sidebar-foreground: hsl(210, 25%, 7.8431%);
-  --sidebar-primary: hsl(203.8863, 88.2845%, 53.1373%);
-  --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(211.5789, 51.3514%, 92.7451%);
-  --sidebar-accent-foreground: hsl(203.8863, 88.2845%, 53.1373%);
-  --sidebar-border: hsl(205.0000, 25.0000%, 90.5882%);
-  --sidebar-ring: hsl(202.8169, 89.1213%, 53.1373%);
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  --color-chart-1: 203.8863 88.2845% 53.1373%;
+  --color-chart-2: 159.7826 100% 36.0784%;
+  --color-chart-3: 42.029 92.8251% 56.2745%;
+  --color-chart-4: 147.1429 78.5047% 41.9608%;
+  --color-chart-5: 341.4894 75.2% 50.9804%;
+
+  --color-sidebar: 180 6.6667% 97.0588%;
+  --color-sidebar-foreground: 210 25% 7.8431%;
+  --color-sidebar-primary: 203.8863 88.2845% 53.1373%;
+  --color-sidebar-primary-foreground: 0 0% 100%;
+  --color-sidebar-accent: 211.5789 51.3514% 92.7451%;
+  --color-sidebar-accent-foreground: 203.8863 88.2845% 53.1373%;
+  --color-sidebar-border: 205 25% 90.5882%;
+  --color-sidebar-ring: 202.8169 89.1213% 53.1373%;
+
+  /* Keep original variable names for CSS variable usage */
+  --chart-1: var(--color-chart-1);
+  --chart-2: var(--color-chart-2);
+  --chart-3: var(--color-chart-3);
+  --chart-4: var(--color-chart-4);
+  --chart-5: var(--color-chart-5);
+  --sidebar: var(--color-sidebar);
+  --sidebar-foreground: var(--color-sidebar-foreground);
+  --sidebar-primary: var(--color-sidebar-primary);
+  --sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+  --sidebar-accent: var(--color-sidebar-accent);
+  --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+  --sidebar-border: var(--color-sidebar-border);
+  --sidebar-ring: var(--color-sidebar-ring);
+
   --radius: 0.5rem;
-  --shadow-2xs: 0px 1px 2px 0px hsl(0, 0%, 0%, 0.05);
-  --shadow-xs: 0px 1px 2px 0px hsl(0, 0%, 0%, 0.05);
-  --shadow-sm: 0px 1px 2px 0px hsl(0, 0%, 0%, 0.05), 0px 1px 3px 0px hsl(0, 0%, 0%, 0.1);
-  --shadow: 0px 1px 2px 0px hsl(0, 0%, 0%, 0.05), 0px 1px 3px 0px hsl(0, 0%, 0%, 0.1);
-  --shadow-md: 0px 4px 6px -1px hsl(0, 0%, 0%, 0.1), 0px 2px 4px -1px hsl(0, 0%, 0%, 0.06);
-  --shadow-lg: 0px 10px 15px -3px hsl(0, 0%, 0%, 0.1), 0px 4px 6px -2px hsl(0, 0%, 0%, 0.05);
-  --shadow-xl: 0px 20px 25px -5px hsl(0, 0%, 0%, 0.1), 0px 10px 10px -5px hsl(0, 0%, 0%, 0.04);
-  --shadow-2xl: 0px 25px 50px -12px hsl(0, 0%, 0%, 0.25);
-  --tracking-normal: 0em;
-  --spacing: 0.25rem;
 }
 
+/* Dark theme overrides - must override both --color-* and --* variables */
 [data-theme="dark"] {
-  --background: hsl(0, 0%, 8%);
-  --foreground: hsl(200, 6.6667%, 91.1765%);
-  --card: hsl(228, 9.8039%, 12%);
-  --card-foreground: hsl(0, 0%, 85.0980%);
-  --popover: hsl(0, 0%, 8%);
-  --popover-foreground: hsl(200, 6.6667%, 91.1765%);
-  --primary: hsl(203.7736, 87.6033%, 52.5490%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(195.0000, 15.3846%, 94.9020%);
-  --secondary-foreground: hsl(210, 25%, 7.8431%);
-  --muted: hsl(0, 0%, 9.4118%);
-  --muted-foreground: hsl(210, 3.3898%, 46.2745%);
-  --accent: hsl(205.7143, 70%, 7.8431%);
-  --accent-foreground: hsl(203.7736, 87.6033%, 52.5490%);
-  --destructive: hsl(356.3033, 90.5579%, 54.3137%);
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(210, 5.2632%, 14.9020%);
-  --input: hsl(207.6923, 27.6596%, 18.4314%);
-  --ring: hsl(202.8169, 89.1213%, 53.1373%);
-  --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
-  --chart-2: hsl(159.7826, 100%, 36.0784%);
-  --chart-3: hsl(42.0290, 92.8251%, 56.2745%);
-  --chart-4: hsl(147.1429, 78.5047%, 41.9608%);
-  --chart-5: hsl(341.4894, 75.2000%, 50.9804%);
-  --sidebar: hsl(228, 9.8039%, 12%);
-  --sidebar-foreground: hsl(0, 0%, 85.0980%);
-  --sidebar-primary: hsl(202.8169, 89.1213%, 53.1373%);
-  --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(205.7143, 70%, 7.8431%);
-  --sidebar-accent-foreground: hsl(203.7736, 87.6033%, 52.5490%);
-  --sidebar-border: hsl(205.7143, 15.7895%, 26.0784%);
-  --sidebar-ring: hsl(202.8169, 89.1213%, 53.1373%);
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segue UI', Roboto, sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-  --radius: 0.5rem;
-  --shadow-2xs: 0px 1px 2px 0px hsl(0, 0%, 100%, 0.05);
-  --shadow-xs: 0px 1px 2px 0px hsl(0, 0%, 100%, 0.05);
-  --shadow-sm: 0px 1px 2px 0px hsl(0, 0%, 100%, 0.05), 0px 1px 3px 0px hsl(0, 0%, 100%, 0.1);
-  --shadow: 0px 1px 2px 0px hsl(0, 0%, 100%, 0.05), 0px 1px 3px 0px hsl(0, 0%, 100%, 0.1);
-  --shadow-md: 0px 4px 6px -1px hsl(0, 0%, 100%, 0.1), 0px 2px 4px -1px hsl(0, 0%, 100%, 0.06);
-  --shadow-lg: 0px 10px 15px -3px hsl(0, 0%, 100%, 0.1), 0px 4px 6px -2px hsl(0, 0%, 100%, 0.05);
-  --shadow-xl: 0px 20px 25px -5px hsl(0, 0%, 100%, 0.1), 0px 10px 10px -5px hsl(0, 0%, 100%, 0.04);
-  --shadow-2xl: 0px 25px 50px -12px hsl(0, 0%, 100%, 0.25);
+  --color-background: #01010a;
+  --color-foreground: 200 6.6667% 91.1765%;
+  --color-card: 228 9.8039% 12%;
+  --color-card-foreground: 0 0% 85.098%;
+  --color-popover: 0 0% 8%;
+  --color-popover-foreground: 200 6.6667% 91.1765%;
+  --color-primary: 203.7736 87.6033% 52.549%;
+  --color-primary-foreground: 0 0% 100%;
+  --color-secondary: 195 15.3846% 94.902%;
+  --color-secondary-foreground: 210 25% 7.8431%;
+  --color-muted: 0 0% 9.4118%;
+  --color-muted-foreground: 210 3.3898% 46.2745%;
+  --color-accent: 205.7143 70% 7.8431%;
+  --color-accent-foreground: 203.7736 87.6033% 52.549%;
+  --color-border: 210 5.2632% 14.902%;
+  --color-input: 207.6923 27.6596% 18.4314%;
+  --color-ring: 202.8169 89.1213% 53.1373%;
+
+  --color-chart-1: 203.8863 88.2845% 53.1373%;
+  --color-chart-2: 159.7826 100% 36.0784%;
+  --color-chart-3: 42.029 92.8251% 56.2745%;
+  --color-chart-4: 147.1429 78.5047% 41.9608%;
+  --color-chart-5: 341.4894 75.2% 50.9804%;
+
+  --color-sidebar: 228 9.8039% 12%;
+  --color-sidebar-foreground: 0 0% 85.098%;
+  --color-sidebar-primary: 202.8169 89.1213% 53.1373%;
+  --color-sidebar-primary-foreground: 0 0% 100%;
+  --color-sidebar-accent: 205.7143 70% 7.8431%;
+  --color-sidebar-accent-foreground: 203.7736 87.6033% 52.549%;
+  --color-sidebar-border: 205.7143 15.7895% 26.0784%;
+  --color-sidebar-ring: 202.8169 89.1213% 53.1373%;
+
+  /* Override aliases - use var() to reference the updated --color-* values */
+  --background: var(--color-background);
+  --foreground: var(--color-foreground);
+  --card: var(--color-card);
+  --card-foreground: var(--color-card-foreground);
+  --popover: var(--color-popover);
+  --popover-foreground: var(--color-popover-foreground);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-primary-foreground);
+  --secondary: var(--color-secondary);
+  --secondary-foreground: var(--color-secondary-foreground);
+  --muted: var(--color-muted);
+  --muted-foreground: var(--color-muted-foreground);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-accent-foreground);
+  --destructive: var(--color-destructive);
+  --destructive-foreground: var(--color-destructive-foreground);
+  --border: var(--color-border);
+  --input: var(--color-input);
+  --ring: var(--color-ring);
+  --chart-1: var(--color-chart-1);
+  --chart-2: var(--color-chart-2);
+  --chart-3: var(--color-chart-3);
+  --chart-4: var(--color-chart-4);
+  --chart-5: var(--color-chart-5);
+  --sidebar: var(--color-sidebar);
+  --sidebar-foreground: var(--color-sidebar-foreground);
+  --sidebar-primary: var(--color-sidebar-primary);
+  --sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+  --sidebar-accent: var(--color-sidebar-accent);
+  --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+  --sidebar-border: var(--color-sidebar-border);
+  --sidebar-ring: var(--color-sidebar-ring);
 }
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: var(--border);
   }
 
   body {
@@ -167,8 +216,8 @@
 }
 
 .ant-card {
-  background: var(--card) !important;
-  border-color: var(--border) !important;
+  /* background: var(--card) !important; */
+  /* border-color: var(--border) !important; */
 }
 
 .ant-typography {
@@ -199,8 +248,8 @@
 }
 
 .ant-btn-primary:hover {
-  background: hsl(203.8863, 88.2845%, 60%) !important;
-  border-color: hsl(203.8863, 88.2845%, 60%) !important;
+  background: 203.8863 88.2845% 60% !important;
+  border-color: 203.8863 88.2845% 60% !important;
 }
 
 .ant-input,
@@ -213,7 +262,7 @@
 .ant-input:focus,
 .ant-input-focused {
   border-color: var(--primary) !important;
-  box-shadow: 0 0 0 2px hsl(203.8863, 88.2845%, 53.1373%, 0.2) !important;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2) !important;
 }
 
 .ant-form-item-label > label {

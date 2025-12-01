@@ -13,6 +13,7 @@ export function Header() {
   const isMobile = useIsMobile();
   const { theme } = useThemeContext();
   const logoPath = theme === 'dark' ? darkLogoPath : lightLogoPath;
+  console.log(theme);
 
   return (
     <AntHeader
@@ -25,7 +26,7 @@ export function Header() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        background: 'var(--ant-color-bg-container)',
+        background: 'var(--ant-color-bg-container) !important',
         backdropFilter: 'blur(10px)',
         borderBottom: '1px solid var(--ant-color-border)',
         padding: '0 24px',

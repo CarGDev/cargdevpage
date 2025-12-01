@@ -27,7 +27,7 @@ export function AboutSection() {
               margin: '0 auto',
             }}
           >
-            Driven by a passion for technology and continuous learning, I build solutions that make a difference.
+            From mechatronics to software engineering, I bridge the gap between hardware and software to build resilient, scalable systems that power millions of users.
           </Paragraph>
         </div>
         
@@ -48,9 +48,10 @@ export function AboutSection() {
                   lineHeight: 1.6,
                 }}
               >
-                As a Senior Software Engineer with extensive full-stack experience, I specialize in creating robust, 
-                scalable applications using modern technologies. My expertise spans across Python, JavaScript, TypeScript, 
-                and various frameworks including React, NestJS, and Spring Boot.
+                Currently at iVoyant, I design and deploy scalable NestJS and Node.js microservices on Kubernetes for 
+                AT&T's Cricket Wireless platform, serving millions of users daily. My work includes leading frontend 
+                development that resulted in $20M/year operational savings and optimizing CI/CD pipelines from 45 minutes 
+                to just 2 minutes.
               </Paragraph>
               
               <Paragraph
@@ -61,10 +62,11 @@ export function AboutSection() {
                   lineHeight: 1.6,
                 }}
               >
-                I thrive in leadership roles, driving technical initiatives that deliver measurable business impact. 
-                My experience includes optimizing CI/CD pipelines, implementing security solutions, and migrating 
-                legacy systems to modern architectures. I'm passionate about open source contributions and 
-                maintaining active engagement in the developer community.
+                Beyond production systems, I'm deeply passionate about AI/ML research and development. I've built 
+                transformer-based language models from scratch (sheepOp), created production-grade RAG optimization 
+                libraries, and developed self-hosted AI platforms. My expertise spans Python, JavaScript, TypeScript, 
+                React, NestJS, and Spring Boot, with a focus on building systems that balance performance, scalability, 
+                and maintainability.
               </Paragraph>
               
               <Paragraph
@@ -74,8 +76,9 @@ export function AboutSection() {
                   lineHeight: 1.6,
                 }}
               >
-                When not coding, I enjoy solving algorithmic challenges on LeetCode, contributing to open source projects, 
-                and sharing knowledge through my technical blog.
+                I'm an active open source contributor, maintainer of multiple NPM packages, and enjoy sharing knowledge 
+                through my technical blog. When not building production systems, you'll find me solving algorithmic 
+                challenges on LeetCode, contributing to open source projects, or exploring the latest in AI/ML research.
               </Paragraph>
             </motion.div>
           </Col>

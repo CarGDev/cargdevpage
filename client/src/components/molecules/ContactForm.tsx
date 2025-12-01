@@ -101,8 +101,8 @@ export function ContactForm() {
           loading={isSubmitting || contactMutation.isPending}
           data-testid="button-send-message"
           style={{
-            background: '#1890ff',
-            borderColor: '#1890ff',
+            background: '#1890ff !important',
+            borderColor: '#1890ff !important',
           }}
         >
           {isSubmitting || contactMutation.isPending ? 'Sending...' : 'Send Message'}
