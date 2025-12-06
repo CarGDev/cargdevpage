@@ -7,7 +7,36 @@ interface ExperienceItemProps {
   experience: Experience;
 }
 
+function calculateYears(duration: string): string {
+  const currentYear = new Date().getFullYear();
+  const parts = duration.split('–').map(part => part.trim());
+  
+  if (parts.length !== 2) return '';
+  
+  const startYear = parseInt(parts[0]);
+  const endPart = parts[1];
+  
+  if (isNaN(startYear)) return '';
+  
+  // Check if it's current job (contains "Present")
+  if (endPart.toLowerCase().includes('present')) {
+    const years = currentYear - startYear;
+    return `${years}+ years`;
+  }
+  
+  // For past jobs, calculate from start to end year
+  const endYear = parseInt(endPart);
+  if (isNaN(endYear)) return '';
+  
+  // Calculate years: endYear - startYear gives the number of years
+  // e.g., 2021-2022 = 1 year, 2020-2021 = 1 year
+  const years = endYear - startYear;
+  
+  return `${years} ${years === 1 ? 'year' : 'years'}`;
+}
+
 export function ExperienceItem({ experience }: ExperienceItemProps) {
+  const yearsText = calculateYears(experience.duration);
   return (
     <motion.div
       initial={{ opacity: 0, x: -50 }}
@@ -73,15 +102,35 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
           </div>
           <div
             style={{
-              background: '#1890ff',
-              color: 'white',
-              padding: '4px 8px',
-              borderRadius: '8px',
-              fontSize: '0.8rem',
-              fontWeight: 500,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-end',
+              gap: '4px',
             }}
           >
-            {experience.duration}
+            <div
+              style={{
+                background: '#1890ff',
+                color: 'white',
+                padding: '4px 8px',
+                borderRadius: '8px',
+                fontSize: '0.8rem',
+                fontWeight: 500,
+              }}
+            >
+              {experience.duration}
+            </div>
+            {yearsText && (
+              <div
+                style={{
+                  color: 'var(--ant-color-text-secondary)',
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                }}
+              >
+                {yearsText}
+              </div>
+            )}
           </div>
         </div>
         

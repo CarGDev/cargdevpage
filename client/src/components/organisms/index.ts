@@ -6,5 +6,7 @@ export { ExperienceSection } from './ExperienceSection';
 export { ProjectsSection } from './ProjectsSection';
 export { LeetCodeSection } from './LeetCodeSection';
 export { CertificationsSection } from './CertificationsSection';
+export { PublicationsSection } from './PublicationsSection';
+export { InTheirWordsSection } from './InTheirWordsSection';
 export { ContactSection } from './ContactSection';
 export { Footer } from './Footer';

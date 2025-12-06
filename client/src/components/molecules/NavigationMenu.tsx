@@ -12,10 +12,12 @@ const menuItems = [
   { key: 'home', label: 'Home' },
   { key: 'about', label: 'About' },
   { key: 'skills', label: 'Skills' },
+  { key: 'publications', label: 'Publications' },
   { key: 'experience', label: 'Experience' },
   { key: 'projects', label: 'Projects' },
   { key: 'leetcode', label: 'LeetCode' },
   { key: 'certifications', label: 'Certifications' },
+  { key: 'testimonials', label: 'In Their Words' },
   { key: 'contact', label: 'Contact' },
 ];
 
